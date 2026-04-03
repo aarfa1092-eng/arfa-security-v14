@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id" style="background:#000!important;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ARFA SECURITY V14</title>
+    <style>
+        /* CORE SYSTEM - FULL BLACK */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html, body { background:#000 !important; color:#34B7F1; font-family:monospace; height:100vh; width:100%; overflow:hidden; }
+
+        /* 1. INTRO VIDEO SECTION */
+        #intro-container { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:9999; display:flex; justify-content:center; align-items:center; cursor:pointer; }
+        video { width:100%; height:100%; object-fit:cover; pointer-events:none; }
+        #tap-msg { position:absolute; bottom:20%; color:#fff; font-size:11px; letter-spacing:2px; animation:blink 1.2s infinite; text-shadow: 0 0 10px #000; z-index:10000; }
+        @keyframes blink { 0%,100%{opacity:0.2;} 50%{opacity:1;} }
+
+        /* 2. DASHBOARD SECTION */
+        #main-app { display:none; padding:20px; text-align:center; padding-top:40px; background:#000; height:100vh; overflow-y:auto; }
+        .h { background:#111; padding:15px; border-bottom:1px solid #34B7F1; text-align:center; position:fixed; top:0; width:100%; left:0; right:0; z-index:100; }
+        .card { background:#0a0a0a; border:1px solid #34B7F1; padding:20px; border-radius:15px; margin-top:60px; text-align:left; box-shadow:0 0 15px rgba(52,183,241,0.1); }
+        .btn { width:100%; padding:15px; border:none; background:#34B7F1; color:#000; font-weight:bold; border-radius:10px; cursor:pointer; margin-top:10px; text-transform:uppercase; letter-spacing:1px; }
+        .log { font-size:10px; color:#0f0; background:#050505; padding:12px; height:100px; overflow-y:auto; border:1px solid #222; margin-top:15px; border-radius:5px; line-height:1.6; }
+    </style>
+</head>
+<body>
+
+<div id="intro-container" onclick="mulaiAplikasi()">
+    <video id="vid" playsinline muted>
+        <source src="1000261630.mp4" type="video/mp4">
+    </video>
+    <div id="tap-msg">TAP TO INITIALIZE SYSTEM</div>
+</div>
+
+<div id="main-app">
+    <div class="h"><b style="color:#fff; letter-spacing:1px;">ARFA SECURITY V14</b></div>
+    
+    <div class="card">
+        <p style="font-size:12px; color:#fff; margin-bottom:15px;">[ PROTOCOL_COMMAND_CENTER ]</p>
+        
+        <button class="btn" onclick="keChatbot()">🤖 CONNECT TO CHATBOT</button>
+        
+        <button class="btn" style="background:#222; color:#34B7F1; border:1px solid #34B7F1;" onclick="scanSystem()">DEEP SCAN SYSTEM</button>
+        
+        <div class="log" id="log">> Encryption Active...<br>> Waiting for Arfa...</div>
+    </div>
+    
+    <p style="margin-top:30px; font-size:9px; color:#444; letter-spacing:2px;">SECURE GUARDIAN BY ARFA ARDIANO ALFATIH</p>
+</div>
+
+<script>
+    var v = document.getElementById("vid");
+    var intro = document.getElementById("intro-container");
+    var main = document.getElementById("main-app");
+
+    // FUNGSI JALANKAN VIDEO
+    function mulaiAplikasi() {
+        document.getElementById("tap-msg").innerHTML = "LOADING PROTOCOL...";
+        v.muted = false; 
+        v.play().catch(() => bukaDashboard());
+    }
+
+    // PINDAH KE MENU KALAU VIDEO SELESAI
+    v.onended = () => bukaDashboard();
+
+    function bukaDashboard() {
+        intro.style.display = "none";
+        main.style.display = "block";
+    }
+
+    // --- FITUR NOMOR 1: REDIRECT CHATBOT ---
+    function keChatbot() {
+        let log = document.getElementById('log');
+        log.innerHTML += "<br>> Accessing Chatbot Server...";
+        
+        setTimeout(() => {
+            // GANTI NOMOR DI BAWAH DENGAN NOMOR WA LU (MAS ARFA)
+            let nomor
+            
